@@ -20,7 +20,7 @@ env:
 jobs:
   ## define job to build and publish docker image
   build-and-push-docker-image:
-    name: Build Docker image amd publish
+    name: Build Docker image amd publish to Github 
     runs-on: ubuntu-latest
     permissions:
       contents: read
