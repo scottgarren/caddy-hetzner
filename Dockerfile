@@ -1,8 +1,9 @@
-FROM caddy:builder AS builder
+ARG CADDY_VERSION=latest
+FROM caddy:${CADDY_VERSION}-builder AS builder
 
 RUN xcaddy build \
-    --with github.com/caddy-dns/hetzner \
+    --with github.com/caddy-dns/hetzner 
 
-FROM caddy:latest
+FROM caddy:${CADDY_VERSION}-alpine
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
